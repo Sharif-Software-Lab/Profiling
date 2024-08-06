@@ -6,6 +6,7 @@ public class MainSource {
         prompt("Start");
         A.getInstance().doJobA();
         B.getInstance().doJobB();
+        C.getInstance().doJobC();
         mainSleep();
         prompt("Finish");
     }
