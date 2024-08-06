@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class C {
@@ -12,7 +13,7 @@ public class C {
     }
 
     public void doJobC() {
-        phi(2000);
+        phi_more_efficient(2000);
         sleepMethodC();
     }
 
@@ -45,6 +46,21 @@ public class C {
             list.add(naive_phi(i));
         }
         System.out.println(list);
+    }
+
+    private void phi_more_efficient(int n){
+        int [] dp = new int[n+1];
+        for (int i = 0; i <= n; i++) {
+            dp[i] = i;
+        }
+        for (int i = 2; i <= n; i++) {
+            if (dp[i] == i) {
+                for (int j = i; j <= n; j += i) {
+                    dp[j] = (dp[j] * (i - 1)) / i;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(dp));
     }
 
 }
